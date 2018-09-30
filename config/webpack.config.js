@@ -5,5 +5,16 @@ module.exports = {
   output: {
     filename: 'application.js',
     path: path.resolve(__dirname, '../public/packs')
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      }
+    ]
   }
 };
