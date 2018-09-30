@@ -1,18 +1,11 @@
-import _ from 'lodash';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import './style.css';
-
-import component from './component';
-
-let element = component();
+import Component from './Component';
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.body.appendChild(element);
+  ReactDOM.render(
+    <Component name="React" />,
+    document.body.appendChild(document.createElement('div'))
+  );
 });
-
-if (module.hot) {
-  module.hot.accept('./component.js', () => {
-    document.body.removeChild(element);
-    element = component();
-    document.body.appendChild(element);
-  });
-}

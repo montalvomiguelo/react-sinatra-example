@@ -1,9 +1,11 @@
-function component() {
-  const element = document.createElement('div');
+import React from 'react';
 
-  element.innerHTML = _.join(['Hello', 'world'], ' ');
+const Component = props => (
+  <div>Hello {props.name}</div>
+);
 
-  return element;
-}
+Component.defaultProps = {
+  name: 'world'
+};
 
-export default component;
+export default Component;
