@@ -4,10 +4,8 @@
   <meta charset="utf-8">
   <title>App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <% if settings.environment == :production %>
-    <link rel="stylesheet" href="/packs/application.css" />
-  <% end %>
-  <script src="/packs/application.js"></script>
+  <%= stylesheet_pack_tag 'application' %>
+  <%= javascript_pack_tag 'application' %>
 </head>
 <body>
 </body>
