@@ -1,11 +1,12 @@
 import React from 'react';
+import { hot } from 'react-hot-loader';
 
 const Component = props => (
-  <div>Hello {props.name}</div>
+  <div>Hola {props.name}</div>
 );
 
 Component.defaultProps = {
   name: 'world'
 };
 
-export default Component;
+export default hot(module)(Component);
