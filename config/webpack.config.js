@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
@@ -9,10 +10,18 @@ module.exports = {
     publicPath: '/packs/',
     compress: true,
     port: 3035,
+    hot: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
   output: {
     filename: 'application.js',
-    path: path.resolve(__dirname, '../public/packs')
+    path: path.resolve(__dirname, '../public/packs'),
+    publicPath: '/packs/'
   },
   module: {
     rules: [

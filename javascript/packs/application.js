@@ -1,14 +1,18 @@
 import _ from 'lodash';
 import './style.css';
 
-function component() {
-  const element = document.createElement('div');
+import component from './component';
 
-  element.innerHTML = _.join(['Hello', 'world'], ' ');
-
-  return element;
-}
+let element = component();
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.body.appendChild(component());
+  document.body.appendChild(element);
 });
+
+if (module.hot) {
+  module.hot.accept('./component.js', () => {
+    document.body.removeChild(element);
+    element = component();
+    document.body.appendChild(element);
+  });
+}

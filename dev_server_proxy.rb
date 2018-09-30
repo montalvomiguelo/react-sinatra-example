@@ -5,7 +5,6 @@ class DevServerProxy < Rack::Proxy
     request = Rack::Request.new(env)
 
     if request.path_info =~ %r{^/packs}
-      byebug
       env['HTTP_HOST'] = DEV_SERVER_HOST
       env["SCRIPT_NAME"] = ''
       env['HTTP_COOKIE'] = ''
