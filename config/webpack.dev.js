@@ -1,9 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
+const merge = require('webpack-merge');
+const common = require('./webpack.common.js');
 
-module.exports = {
+module.exports = merge(common, {
   mode: 'development',
-  entry: './javascript/packs/application.js',
   devtool: 'cheap-module-source-map',
   devServer: {
     contentBase: path.join(__dirname, '../public/packs'),
@@ -18,11 +19,6 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ],
-  output: {
-    filename: 'application.js',
-    path: path.resolve(__dirname, '../public/packs'),
-    publicPath: '/packs/'
-  },
   module: {
     rules: [
       {
@@ -34,4 +30,4 @@ module.exports = {
       }
     ]
   }
-};
+});
