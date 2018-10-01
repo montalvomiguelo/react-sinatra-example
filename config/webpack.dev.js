@@ -23,7 +23,6 @@ module.exports = merge(common, {
     rules: [
       {
         test: /\.css$/,
-        exclude: /node_modules/,
         use: [
           'style-loader',
           {
@@ -43,7 +42,7 @@ module.exports = merge(common, {
         ]
       },
       {
-        test: /\.m?js$/,
+        test: /\.(js|jsx|mjs)$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',

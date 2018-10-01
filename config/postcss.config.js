@@ -6,7 +6,6 @@ module.exports = {
   plugins: {
     'postcss-import': {},
     'postcss-preset-env': {
-      preserve: false,
       browsers: [
         '>1%',
         'last 4 versions',

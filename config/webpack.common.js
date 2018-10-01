@@ -6,5 +6,8 @@ module.exports = {
     filename: 'application.js',
     path: path.resolve(__dirname, '../public/packs'),
     publicPath: '/packs/'
+  },
+  resolve: {
+    extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
   }
 };
