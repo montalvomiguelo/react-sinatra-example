@@ -1,5 +1,7 @@
+@import 'variables.css';
+
 body {
-  color: #232323;
+  color: var(--color-body-text);
   line-height: 1.618;
   font-size: 14px;
 }
