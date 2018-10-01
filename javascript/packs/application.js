@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
-import Component from './Component';
+import App from './App';
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Component name="React" />,
+    <App />,
     document.body.appendChild(document.createElement('div'))
   );
 });
