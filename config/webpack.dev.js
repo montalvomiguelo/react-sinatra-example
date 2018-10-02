@@ -11,10 +11,7 @@ module.exports = merge(common, {
     publicPath: '/packs/',
     compress: true,
     port: 3035,
-    hot: true,
-    headers: {
-      'Access-Control-Allow-Origin': '*'
-    }
+    hot: true
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
