@@ -1,4 +1,4 @@
-const path = require('path');
+const paths = require('./paths');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
@@ -7,8 +7,8 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'cheap-module-source-map',
   devServer: {
-    contentBase: path.join(__dirname, '../public/packs'),
-    publicPath: '/packs/',
+    contentBase: paths.appBuild,
+    publicPath: paths.servedPath,
     compress: true,
     port: 3035,
     hot: true,
@@ -33,7 +33,7 @@ module.exports = merge(common, {
             loader: 'postcss-loader',
             options: {
               config: {
-                path: path.resolve(__dirname)
+                path: paths.postcssConfigPath
               }
             }
           }
@@ -42,9 +42,7 @@ module.exports = merge(common, {
       {
         test: /\.(js|jsx|mjs)$/,
         exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-        }
+        loader: 'babel-loader'
       }
     ]
   }

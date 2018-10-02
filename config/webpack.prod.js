@@ -1,9 +1,11 @@
-const path = require('path');
+const paths = require('./paths');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
+
+const cssFilename = 'application.css';
 
 module.exports = merge(common, {
   mode: 'production',
@@ -20,7 +22,7 @@ module.exports = merge(common, {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'application.css'
+      filename: cssFilename
     })
   ],
   module: {
@@ -41,7 +43,7 @@ module.exports = merge(common, {
             loader: 'postcss-loader',
             options: {
               config: {
-                path: path.resolve(__dirname)
+                path: paths.postcssConfigPath
               }
             }
           }
@@ -50,9 +52,7 @@ module.exports = merge(common, {
       {
         test: /\.(js|jsx|mjs)$/,
         exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-        }
+        loader: 'babel-loader'
       }
     ]
   }
